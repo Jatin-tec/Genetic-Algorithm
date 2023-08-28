@@ -3,7 +3,7 @@ class DNA {
         if(genes){
             this.genes=genes
         }else{
-            this.lifeSpan=300;
+            this.lifeSpan = 350;
             this.genes = [];
             for(var i=0; i<this.lifeSpan; i++){
                 this.genes[i] = p5.Vector.random2D();

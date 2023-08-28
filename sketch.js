@@ -5,13 +5,12 @@ var target;
 var genrations=1;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(windowWidth, windowHeight);
   population = new Population();
-  lifeP = createP();
-  fitness = createP();
-  gens = createP();
-  target = createVector(width/2, 20);
+  target = createVector(width/2, 40);
 }
+
+var maxFitness = 0;
 
 function draw() {
   background(220);
@@ -21,17 +20,26 @@ function draw() {
 
   rect(100, 250, 250, 20);
 
+  fill(255);
+
+  rect(10, 10, 250, 80)
+  fill(0);
+  textSize(16);
+
   population.run();
-  lifeP.html(`Frames: ${count}`);
+
+  // Display text inside the box
+  text("Frames: " + count, 20, 50);
   count++;
-  if(count>=300) {
-    var maxFitness=population.evaluate();
+  text("Generation: " + genrations, 20, 30);
+  text("Fitness: " + maxFitness, 20, 70);
+  
+  if(count>=350) {    
+    maxFitness= population.evaluate();
     population.naturalSelection();
-    fitness.html(`Maximum Fitness: ${maxFitness}`);
     count=0;
     if(maxFitness!==5000){
     genrations += 1;
     }
   }
-  gens.html(`Genrations: ${genrations}`)
 }

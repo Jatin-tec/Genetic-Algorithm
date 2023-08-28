@@ -18,7 +18,7 @@ class Rocket {
         this.count = 0;
 
         //target position
-        this.target = createVector(width/2, 20);
+        this.target = createVector(width/2, 40);
 
         //obstical position
         this.rect_height = 20;
